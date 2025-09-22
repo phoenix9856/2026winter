@@ -107,8 +107,9 @@ int main(){
 //    dataSample.centerFreq = 5000000000;
 
 
-    int a;
-    std::cin << a << endl;
+    int a = 0;
+    std::cout << "which function do you want?1:detection 2:indentify" <<std::endl;
+    std::cin >> a;
     switch (a) {
     case 1:
         std::shared_ptr<class_loader::ClassLoader> cls_loader_;
@@ -213,41 +214,38 @@ int main(){
             return -2;
         }
         ISN_ERROR_LOG("Identify signal success");
-//        ISN_INFO_LOG("Identify signal size:" << IdentifyResult.identifyResultComm.commresult.size();
-//        for (int i = 0; i < commResults.commResults.size(); i++) {
-//            IdentifyResult const & identificationresult = commResults.commresult[i];
-//            std::cout << identificationresult << std::endl;
-//            std::cout << signal.sampleBand << std::endl;
-//            std::cout << signal.centerFreq << std::endl;
-//            std::cout << signal.energy << std::endl;
-//            std::cout << signal.snr << std::endl;
-//            std::cout << signal.type << std::endl;
-//        }
         if(!IdentifyResult.identifyResultComm.commresult.empty()){
             ISN_INFO_LOG("comm signal size:" << IdentifyResult.identifyResultComm.commresult.size());
             for(int i = 0; i < IdentifyResult.identifyResultComm.commresult.size(); i ++){
                 IdentifyResultComm const & identificationCommResult = IdentifyResult.identifyResultComm.commresult[i];
                 std::cout << "signal id:" < identificationCommResult.signalId << std::endl;
-                std::cout << "signal id:" < identificationCommResult.signalType << std::endl;
-                std::cout << "signal id:" < identificationCommResult.moduleType.c_str() << std::endl;
-                std::cout << "signal id:" < identificationCommResult.mt << std::endl;
-                std::cout << "signal id:" < identificationCommResult.para.frequency << std::endl;
-                std::cout << "signal id:" < identificationCommResult.para.power << std::endl;
-                std::cout << "signal id:" < identificationCommResult.para.bandWidth << std::endl;
-                std::cout << "signal id:" < identificationCommResult.para.quality << std::endl;
-                std::cout << "signal id:" < identificationCommResult.para.snr << std::endl;
-                std::cout << "signal id:" < identificationCommResult.signalId << std::endl;
-                ISN_INFO_LOG("signal type :"  << item.signalType);
-                ISN_INFO_LOG("module Type  :" << item.moduleType.c_str());
-                ISN_INFO_LOG("module Type  :" << item.mt);
-                ISN_INFO_LOG("frequency    :" << item.para.frequency);
-                ISN_INFO_LOG("power        :" << item.para.power);
-                ISN_INFO_LOG("bandwidth    :" << item.para.bandWidth);
-                ISN_INFO_LOG("quality      :" << item.para.quality);
-                ISN_INFO_LOG("snr          :" << item.para.snr);
-
+                std::cout << "signal type:" < identificationCommResult.signalType << std::endl;
+                std::cout << "module Type:" < identificationCommResult.moduleType.c_str() << std::endl;
+                std::cout << "module Type:" < identificationCommResult.mt << std::endl;
+                std::cout << "frequency:" < identificationCommResult.para.frequency << std::endl;
+                std::cout << "power:" < identificationCommResult.para.power << std::endl;
+                std::cout << "bandwidth:" < identificationCommResult.para.bandWidth << std::endl;
+                std::cout << "quality:" < identificationCommResult.para.quality << std::endl;
+                std::cout << "snr:" < identificationCommResult.para.snr << std::endl;
             }
-
+        }else if (!IdentifyResult.identifyResultInterfere.interfereresult.empty()) {
+            ISN_INFO_LOG("Intra signal size:" << IdentifyResult.identifyResultInterfere.interfereresult.size());
+            for (int i = 0;i < IdentifyResult.identifyResultInterfere.interfereresult.size(); i++) {
+                IdentifyResultInterfere const & identificationInterResult = IdentifyResult.identifyResultInterfere.interfereresult[i];
+                std::cout << "signal id:" < identificationInterResult.signalId << std::endl;
+                std::cout << "signal type:" < identificationInterResult.signalType << std::endl;
+                std::cout << "interfere Type:" < identificationInterResult.interfereType.c_str() << std::endl;
+                std::cout << "interfere Type:" < identificationInterResult.it << std::endl;
+                std::cout << "frequency:" < identificationInterResult.para.frequency << std::endl;
+                std::cout << "power:" < identificationInterResult.para.power << std::endl;
+                std::cout << "bandwidth:" < identificationInterResult.para.bandWidth << std::endl;
+                std::cout << "quality:" < identificationInterResult.para.quality << std::endl;
+                std::cout << "snr:" < identificationInterResult.para.snr << std::endl;
+            }
+//            DemoDataBase::Instance().saveIdentificationResults(identifyResult.identifyResultInterfere, outBody);
+        } else {
+            ISN_ERROR_LOG("not support");
+            throw std::runtime_error("have no result");
         }
         separate_plugin_.reset();
         separate_cls_loader_.reset();
