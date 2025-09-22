@@ -16,26 +16,23 @@ include_directories(
     ${DEV_ROOT}/3rds/include
     ${DEV_ROOT}/3rds/class_loader/include
     ${DEV_ROOT}/plugin/include
-    ${DEV_ROOT}/plugin/DetectAndSperateForLocation
-    ${DEV_ROOT}/plugin/DetectSink
-    ${DEV_ROOT}/plugin/Identification
-    ${DEV_ROOT}/plugin/Location
-    ${DEV_ROOT}/plugin/RadarIQ2PDW
-    ${DEV_ROOT}/plugin/RadarIdentification
-    ${DEV_ROOT}/plugin/RadarSignalSorting
-    ${DEV_ROOT}/plugin/DetectAndClass
-    ${DEV_ROOT}/plugin/DetectAndSperate
-    ${DEV_ROOT}/plugin/Detection
-    ${DEV_ROOT}/plugin/NodeDeployment
-    ${DEV_ROOT}/plugin/GetIQDataFromSim
-    ${DEV_ROOT}/simulator
+    ${DEV_ROOT}/plugin/DetectSink/include
+    ${DEV_ROOT}/plugin/Identification/include
+    ${DEV_ROOT}/plugin/RadarIQ2PDW/include
+    ${DEV_ROOT}/plugin/RadarIdentification/include
+    ${DEV_ROOT}/plugin/RadarSignalSorting/include
+    ${DEV_ROOT}/plugin/DetectAndClass/include
+    ${DEV_ROOT}/plugin/DetectAndSperate/include
+    ${DEV_ROOT}/plugin/Detection/include
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 add_executable(
     ${PROJECT_NAME}
-    "main.cpp"
-    "src/pcie_console.cpp"
+    main.cpp
+    src/pcie_console.cpp
+    src/RadarProcess.cpp
+    src/buildExpertLib.cpp
     )
 link_directories(${PROJECT_NAME}
     /usr/lib/aarch64-linux-gnu
