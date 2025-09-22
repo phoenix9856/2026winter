@@ -7,6 +7,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(DEV_ROOT ~/edge.git)
 find_package(Qt5Core)
+set(CMAKE_BUILD_TYPE DEBUG)
 
 include_directories(
     include/EMPT
@@ -40,4 +41,5 @@ link_directories(${PROJECT_NAME}
     /usr/lib/aarch64-linux-gnu
     /usr/local/python3.7.5/lib)
 #LINK_DIRECTORIES(/usr/local/python3.7.5/lib)
-target_link_libraries(${PROJECT_NAME} Qt5::Core glog  boost_system console_bridge class_loader /usr/local/python3.7.5/lib/libpython3.7m.so)
+target_link_libraries(${PROJECT_NAME} Qt5::Core glog  boost_system console_bridge class_loader python3.7m)
+#/usr/local/python3.7.5/lib/libpython3.7m.so

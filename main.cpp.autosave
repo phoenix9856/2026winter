@@ -42,10 +42,6 @@
 //#include "JsonUtilsEx.hpp"
 
 
-//#define ISN_ERROR_LOG(info) std::cout << info << std::endl;
-//#define ISN_INFO_LOG(info) std::cout << info << std::endl;
-
-
 int main(){
     std::cout << "start main..." << std::endl;
 
@@ -71,7 +67,6 @@ int main(){
         std::cout << " creat file at" << filename << std::endl;
 
     //pcie_test();
-//    ISN_ERROR_LOG("begin to read data from file");
     std::cout << "begin to read data from file" << std::endl;
     Pcie_Console.RawDataSample(sendbuff, read_len, 0x02);//0x01 zhong pin data; 0x02:IQ data;
 
@@ -79,7 +74,6 @@ int main(){
     write(file_fd, sendbuff, read_len);
     close(file_fd);
 //    sendbuff = NULL;
-//    ISN_ERROR_LOG("begin to constrcut data sample");
     std::cout << "begin to constrcut data sample" << std::endl;
     IQDataSampleInfo dataSample;
     dataSample.data.aIQDataArray.resize(read_len/4);
@@ -91,7 +85,6 @@ int main(){
         begin += 4;
         dst++;
     }
-//    ISN_ERROR_LOG("end to constrcut data sample");
     std::cout << "end to constrcut data sample" << std::endl;
 
 //    int a = 0;//"which function do you want?   1:detection 2:indentify
