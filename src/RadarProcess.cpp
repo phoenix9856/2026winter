@@ -74,7 +74,7 @@ public:
         }
         ISN_ERROR_LOG("radar identify signal size:" << results.size());
 
-        return 0;
+        return "";
     }
 private:
     boost::shared_ptr<class_loader::ClassLoader> radar_iq2pdw_loader_;

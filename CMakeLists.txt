@@ -33,6 +33,7 @@ add_executable(
     src/pcie_console.cpp
     src/RadarProcess.cpp
     src/buildExpertLib.cpp
+    src/JsonUtilsEx.cpp
     )
 link_directories(${PROJECT_NAME}
     /usr/lib/aarch64-linux-gnu

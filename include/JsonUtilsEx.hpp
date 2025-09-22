@@ -13,10 +13,10 @@ namespace isnext {
     int toJson(IQDetectResult const & info, nlohmann::json & out);
     int fromJson(std::string const & strJson, IQDetectResult & info);
 
-    int toJson(IdentifyResultComm const & info, nlohmann::json & out);
+    int toJson(IdentifyResultCommArray const & info, nlohmann::json & out);
     int fromJson(std::string const & strJson, IdentifyResultComm & info);
     
-    int toJson(IdentifyResultInterfere const & info, nlohmann::json & out);
+    int toJson(IdentifyResultInterfereArray const & info, nlohmann::json & out);
     int fromJson(std::string const & strJson, IdentifyResultInterfere & info);
 
     int toJson(TargetLoc const & info, nlohmann::json & out);

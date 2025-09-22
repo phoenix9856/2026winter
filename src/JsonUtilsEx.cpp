@@ -48,17 +48,21 @@ namespace isnext {
         return 0;
     }
 
-    int toJson(IdentifyResultComm const &info, nlohmann::json &out)
+    int toJson(IdentifyResultCommArray const & input, nlohmann::json & jsonOut)
     {
-        out["signalId"] = info.signalId;
-        out["signalType"] = info.signalType;
-        out["moduleType"] = info.moduleType;
-        nlohmann::json paramObj = nlohmann::json::object();
-        paramObj["frequency"] = info.para.frequency;
-        paramObj["power"] = info.para.power;
-        paramObj["bandWidth"] = info.para.bandWidth;
-        paramObj["snr"] = info.para.snr;
-        out["para"] = paramObj;
+        for (auto const & info : input.commresult) {
+            nlohmann::json out;
+            out["signalId"] = info.signalId;
+            out["signalType"] = info.signalType;
+            out["moduleType"] = info.moduleType;
+            nlohmann::json paramObj = nlohmann::json::object();
+            paramObj["frequency"] = info.para.frequency;
+            paramObj["power"] = info.para.power;
+            paramObj["bandWidth"] = info.para.bandWidth;
+            paramObj["snr"] = info.para.snr;
+            out["para"] = paramObj;
+            jsonOut.push_back(out);
+        }
         return 0;
     }
 
@@ -76,17 +80,21 @@ namespace isnext {
         return 0;
     }
 
-    int toJson(IdentifyResultInterfere const &info, nlohmann::json &out)
+    int toJson(IdentifyResultInterfereArray const &input, nlohmann::json &jsonOut)
     {
-        out["signalId"] = info.signalId;
-        out["signalType"] = info.signalType;
-        out["interfereType"] = info.interfereType;
-        nlohmann::json paramObj = nlohmann::json::object();
-        paramObj["frequency"] = info.para.frequency;
-        paramObj["power"] = info.para.power;
-        paramObj["bandWidth"] = info.para.bandWidth;
-        paramObj["snr"] = info.para.snr;
-        out["para"] = paramObj;
+        for (auto const & info : input.interfereresult) {
+            nlohmann::json out;
+            out["signalId"] = info.signalId;
+            out["signalType"] = info.signalType;
+            out["interfereType"] = info.interfereType;
+            nlohmann::json paramObj = nlohmann::json::object();
+            paramObj["frequency"] = info.para.frequency;
+            paramObj["power"] = info.para.power;
+            paramObj["bandWidth"] = info.para.bandWidth;
+            paramObj["snr"] = info.para.snr;
+            out["para"] = paramObj;
+            jsonOut.push_back(out);
+        }
         return 0;
     }
 
