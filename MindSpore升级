@@ -1,0 +1,15 @@
+从[此链接](https://repo.mindspore.cn/mindspore/mindspore/version/)获取到对应日期的软件包。
+
+*	目标 daily whl包具体查找过程如下：
+    1.	进入以master为前缀的目录。若是出现多个目录前缀是master时，推荐进入日期更靠后的目录。
+    2.	进入unified目录。
+    3.	根据实际操作系统信息，进入对应目录。由于香橙派开发板默认操作系统为linux-aarch64，所以进入aarch64目录。
+    4.	根据实际python版本信息，找到对应daily whl包。由于香橙派开发板默认为python3.9，所以目标daily包为mindspore-2.4.0-cp39-cp39-linux_aarch64.whl。
+    
+
+    
+# wget下载whl包
+wget https://repo.mindspore.cn/mindspore/mindspore/version/202510/20251031/master_20251031160018_d30a0f38743e3c038c2efeb2cfbb1fb779e1ab6c_newest/unified/aarch64/mindspore-2.7.1-cp39-cp39-linux_aarch64.whl
+pip install mindspore-2.7.1-cp39-cp39-linux_aarch64.whl
+pip install mindspore-2.6.0-cp39-cp39-linux_aarch64.whl
+pip install mindspore-2.4.10-cp39-cp39-linux_aarch64.whl

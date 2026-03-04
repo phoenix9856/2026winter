@@ -1,0 +1,10 @@
+su – root
+cd /usr/local/Ascend/ascend-toolkit
+rm -rf *
+uname -a
+打开[昇腾CANN官网](https://www.hiascend.com/developer/download/community/result?module=cann)访问社区版资源，下载所需版本的toolkit包
+cd /home/HwHiAiUser/Downloads
+chmod +x ./Ascend-cann-toolkit_8.0.0_linux-aarch64.run
+./Ascend-cann-toolkit_8.0.0_linux-aarch64.run --install --quiet
+cd /usr/local/Ascend/ascend-toolkit/
+bash set_env.sh

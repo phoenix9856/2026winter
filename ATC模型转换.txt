@@ -1,0 +1,11 @@
+(base) HwHiAiUser@orangepiaipro-20t:~/2026winter/edge.git/plugin$ atc \
+--framework=5 \
+--model=/home/HwHiAiUser/2026winter/onnx/model_80.onnx \
+--output=/home/HwHiAiUser/2026winter/om/model_80 \
+--input_format=NCHW \
+--input_shape=time_freq_matrix:1,1,512,512 \
+--log=error \
+--soc_version=Ascend310B4
+ATC start working now, please wait for a moment.
+...................
+ATC run success, welcome to the next use.

@@ -1,0 +1,6 @@
+su – root
+npu-smi info
+打开[昇腾CANN官网](https://www.hiascend.com/developer/download/community/result?module=cann)访问社区版资源，下载与CANN包版本一致，并且匹配NPU型号的kernel包，
+cd /home/HwHiAiUser/Downloads
+chmod +x ./Ascend-cann-kernels-310b_8.0.0_linux-aarch64.run
+./Ascend-cann-kernels-310b_8.0.0_linux-aarch64.run --install --install-for-all
